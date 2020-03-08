@@ -1,0 +1,10 @@
+create table Blogs (
+   blog_id int,
+   title varchar(100),
+   content varchar(5000),
+   img_url varchar(200)
+   );
+
+insert into Blogs values (1, 'First Blog', 'First blog body', 'https://');
+
+select * from blogs;

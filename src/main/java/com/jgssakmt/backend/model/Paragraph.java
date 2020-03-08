@@ -5,6 +5,15 @@ public class Paragraph {
     private Integer paragraphId;
     private String header;
     private String body;
+    private String imgUrl;
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
     public Integer getParagraphId() {
         return paragraphId;

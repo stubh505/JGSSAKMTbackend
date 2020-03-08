@@ -1,7 +1,13 @@
 package com.jgssakmt.backend.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "blogs")
 public class BlogsEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer blogId;
     private String title;
     private String content;
