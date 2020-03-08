@@ -1,12 +1,12 @@
-package com.jgssakmt.backend.model;
+package com.jgssakmt.backend.entity;
 
 import java.util.List;
 
-public class Pages {
+public class PagesEntity {
 
     private String header;
     private Integer pageId;
-    private List<Paragraph> paragraphs;
+    private List<ParagraphsEntity> paragraphs;
 
     public Integer getPageId() {
         return pageId;
@@ -24,7 +24,7 @@ public class Pages {
         this.header = header;
     }
 
-    public List<Paragraph> getParagraphs() {
+    public List<ParagraphsEntity> getParagraphs() {
         return paragraphs;
     }
 }

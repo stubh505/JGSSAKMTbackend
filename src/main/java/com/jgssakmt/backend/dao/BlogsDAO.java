@@ -1,8 +1,8 @@
-package com.jgssakmt.backend.service;
+package com.jgssakmt.backend.dao;
 
 import com.jgssakmt.backend.model.Blogs;
 
-public interface BlogsService {
+public interface BlogsDAO {
     Blogs getBlog(Integer blogId) throws Exception;
     Integer addNewBlog(Blogs blog) throws Exception;
 }

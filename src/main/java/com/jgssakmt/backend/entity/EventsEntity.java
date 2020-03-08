@@ -1,8 +1,8 @@
-package com.jgssakmt.backend.model;
+package com.jgssakmt.backend.entity;
 
 import java.time.LocalDateTime;
 
-public class Events {
+public class EventsEntity {
 
     private LocalDateTime startTime;
     private LocalDateTime endTime;
