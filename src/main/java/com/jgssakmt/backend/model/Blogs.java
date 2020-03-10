@@ -1,11 +1,31 @@
 package com.jgssakmt.backend.model;
 
+import java.time.LocalDateTime;
+
 public class Blogs {
 
     private Integer blogId;
     private String title;
     private String content;
     private String imgUrl;
+    private LocalDateTime posted;
+    private LocalDateTime edited;
+
+    public LocalDateTime getPosted() {
+        return posted;
+    }
+
+    public void setPosted(LocalDateTime posted) {
+        this.posted = posted;
+    }
+
+    public LocalDateTime getEdited() {
+        return edited;
+    }
+
+    public void setEdited(LocalDateTime edited) {
+        this.edited = edited;
+    }
 
     public String getTitle() {
         return title;

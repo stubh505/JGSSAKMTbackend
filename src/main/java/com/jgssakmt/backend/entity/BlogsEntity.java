@@ -1,6 +1,7 @@
 package com.jgssakmt.backend.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "blogs")
@@ -12,6 +13,24 @@ public class BlogsEntity {
     private String title;
     private String content;
     private String imgUrl;
+    private LocalDateTime posted;
+    private LocalDateTime edited;
+
+    public LocalDateTime getPosted() {
+        return posted;
+    }
+
+    public void setPosted(LocalDateTime posted) {
+        this.posted = posted;
+    }
+
+    public LocalDateTime getEdited() {
+        return edited;
+    }
+
+    public void setEdited(LocalDateTime edited) {
+        this.edited = edited;
+    }
 
     public String getTitle() {
         return title;
