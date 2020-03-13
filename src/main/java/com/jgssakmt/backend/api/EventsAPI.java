@@ -39,4 +39,24 @@ public class EventsAPI {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
     }
+
+    @PostMapping(value = "/editEvent")
+    public ResponseEntity<Events> editEvent(@RequestBody Events event) throws Exception {
+        try {
+            Events eventId = eventsService.editEvent(event.getEventId(), event);
+            return new ResponseEntity<>(eventId, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+    }
+
+    @GetMapping(value = "/deleteEvent/{eventId}")
+    public ResponseEntity<Integer> deleteEvent(@PathVariable Integer eventId) throws Exception {
+        try {
+            Integer event = eventsService.deleteEvent(eventId);
+            return new ResponseEntity<>(event, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+    }
 }

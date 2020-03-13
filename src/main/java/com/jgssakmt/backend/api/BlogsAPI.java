@@ -21,7 +21,7 @@ public class BlogsAPI {
     BlogsService blogsService;
 
     @GetMapping(value = "/getBlog/{blogId}")
-    public ResponseEntity<Blogs> getBlog(Integer blogId) throws Exception {
+    public ResponseEntity<Blogs> getBlog(@PathVariable Integer blogId) throws Exception {
         try {
             Blogs blog = blogsService.getBlog(blogId);
             return new ResponseEntity<>(blog, HttpStatus.OK);
@@ -35,6 +35,26 @@ public class BlogsAPI {
         try {
             Integer blogId = blogsService.addNewBlog(blog);
             return new ResponseEntity<>(blogId, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+    }
+
+    @PostMapping(value = "/editBlog")
+    public ResponseEntity<Blogs> editBlog(@RequestBody Blogs blog) throws Exception {
+        try {
+            Blogs blogId = blogsService.editBlog(blog.getBlogId(), blog);
+            return new ResponseEntity<>(blogId, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+    }
+
+    @GetMapping(value = "/deleteBlog/{blogId}")
+    public ResponseEntity<Integer> deleteBlog(@PathVariable Integer blogId) throws Exception {
+        try {
+            Integer blog = blogsService.deleteBlog(blogId);
+            return new ResponseEntity<>(blog, HttpStatus.OK);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
