@@ -18,14 +18,10 @@ public class BlogsDAOImpl implements BlogsDAO{
 
     @Override
     public Blogs getBlog(Integer blogId) throws Exception {
-        Query query = entityManager.createQuery("select b from BlogsEntity b where b.blogId = :blogId");
-        query.setParameter("blogId", blogId);
+        BlogsEntity blogEntity = entityManager.find(BlogsEntity.class, blogId);
 
         Blogs blog = null;
-        List<BlogsEntity> blogEntities = query.getResultList();
-
-        if (!blogEntities.isEmpty()) {
-            BlogsEntity blogEntity = blogEntities.get(0);
+        if (blogEntity != null) {
             blog = new Blogs();
             blog.setBlogId(blogEntity.getBlogId());
             blog.setEdited(blogEntity.getEdited());
@@ -56,14 +52,9 @@ public class BlogsDAOImpl implements BlogsDAO{
 
     @Override
     public Blogs editBlog(Integer blogId, Blogs blog) throws Exception {
-        Query query = entityManager.createQuery("select b from BlogsEntity b where b.blogId = :blogId");
-        query.setParameter("blogId", blogId);
+        BlogsEntity blogEntity = entityManager.find(BlogsEntity.class, blogId);
 
-        List<BlogsEntity> blogEntities = query.getResultList();
-
-        if (!blogEntities.isEmpty()) {
-            BlogsEntity blogEntity = blogEntities.get(0);
-
+        if (blogEntity != null) {
             blogEntity.setEdited(LocalDateTime.now());
             blogEntity.setImgUrl(blog.getImgUrl());
             blogEntity.setContent(blog.getContent());
@@ -82,14 +73,9 @@ public class BlogsDAOImpl implements BlogsDAO{
 
     @Override
     public Integer deleteBlog(Integer blogId) throws Exception {
-        Query query = entityManager.createQuery("select b from BlogsEntity b where b.blogId = :blogId");
-        query.setParameter("blogId", blogId);
+        BlogsEntity blogEntity = entityManager.find(BlogsEntity.class, blogId);
 
-        List<BlogsEntity> blogEntities = query.getResultList();
-
-        if (!blogEntities.isEmpty()) {
-            BlogsEntity blogEntity = blogEntities.get(0);
-
+        if (blogEntity != null) {
             entityManager.remove(blogEntity);
 
             return blogEntity.getBlogId();

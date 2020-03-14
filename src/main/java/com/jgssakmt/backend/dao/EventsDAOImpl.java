@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import java.util.List;
 
 @Repository(value = "eventsDAO")
 public class EventsDAOImpl implements EventsDAO {
@@ -17,14 +15,11 @@ public class EventsDAOImpl implements EventsDAO {
 
     @Override
     public Events getEvent(Integer eventId) throws Exception {
-        Query query = entityManager.createQuery("select b from EventsEntity b where b.eventId = :eventId");
-        query.setParameter("eventId", eventId);
+        EventsEntity eventEntity = entityManager.find(EventsEntity.class, eventId);
 
         Events event = null;
-        List<EventsEntity> eventEntities = query.getResultList();
 
-        if (!eventEntities.isEmpty()) {
-            EventsEntity eventEntity = eventEntities.get(0);
+        if (eventEntity != null) {
             event = new Events();
             event.setEventId(eventEntity.getEventId());
             event.setDescription(eventEntity.getDescription());
@@ -55,14 +50,9 @@ public class EventsDAOImpl implements EventsDAO {
 
     @Override
     public Events editEvent(Integer eventId, Events event) throws Exception {
-        Query query = entityManager.createQuery("select b from EventsEntity b where b.eventId = :eventId");
-        query.setParameter("eventId", eventId);
+        EventsEntity eventEntity = entityManager.find(EventsEntity.class, eventId);
 
-        List<EventsEntity> eventEntities = query.getResultList();
-
-        if (!eventEntities.isEmpty()) {
-            EventsEntity eventEntity = eventEntities.get(0);
-
+        if (eventEntity != null) {
             eventEntity.setDescription(event.getDescription());
             eventEntity.setEndTime(event.getEndTime());
             eventEntity.setImgUrl(event.getImgUrl());
@@ -82,14 +72,9 @@ public class EventsDAOImpl implements EventsDAO {
 
     @Override
     public Integer deleteEvent(Integer eventId) throws Exception {
-        Query query = entityManager.createQuery("select b from EventsEntity b where b.eventId = :eventId");
-        query.setParameter("eventId", eventId);
+        EventsEntity eventEntity = entityManager.find(EventsEntity.class, eventId);
 
-        List<EventsEntity> eventEntities = query.getResultList();
-
-        if (!eventEntities.isEmpty()) {
-            EventsEntity eventEntity = eventEntities.get(0);
-
+        if (eventEntity != null) {
             entityManager.remove(eventEntity);
 
             return eventEntity.getEventId();
