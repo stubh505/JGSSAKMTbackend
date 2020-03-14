@@ -4,4 +4,8 @@ public class BlogsException extends Exception {
     public BlogsException() {
         super("An error occurred trying to fetch the blog");
     }
+
+    public BlogsException(String ex) {
+        super(ex);
+    }
 }

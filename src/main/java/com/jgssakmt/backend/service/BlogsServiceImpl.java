@@ -3,6 +3,7 @@ package com.jgssakmt.backend.service;
 import com.jgssakmt.backend.dao.BlogsDAO;
 import com.jgssakmt.backend.exeptions.BlogsException;
 import com.jgssakmt.backend.model.Blogs;
+import com.jgssakmt.backend.validator.BlogsValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,8 @@ public class BlogsServiceImpl implements BlogsService {
 
     @Override
     public Integer addNewBlog(Blogs blog) throws Exception {
+        BlogsValidator.validate(blog);
+
         Integer blogId = blogsDAO.addNewBlog(blog);
 
         if (blogId == null)
