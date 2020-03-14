@@ -8,13 +8,22 @@ import java.time.LocalDateTime;
 public class BlogsEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer blogId;
     private String title;
     private String content;
     private String imgUrl;
+    private String excerpt;
     private LocalDateTime posted;
     private LocalDateTime edited;
+
+    public String getExcerpt() {
+        return excerpt;
+    }
+
+    public void setExcerpt(String excerpt) {
+        this.excerpt = excerpt;
+    }
 
     public LocalDateTime getPosted() {
         return posted;

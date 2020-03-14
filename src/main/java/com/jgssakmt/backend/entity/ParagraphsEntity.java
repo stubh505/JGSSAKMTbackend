@@ -1,7 +1,13 @@
 package com.jgssakmt.backend.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "paragraphs")
 public class ParagraphsEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer paragraphId;
     private String header;
     private String body;

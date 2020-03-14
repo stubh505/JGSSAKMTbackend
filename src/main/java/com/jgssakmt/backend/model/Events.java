@@ -10,6 +10,15 @@ public class Events {
     private String name;
     private String description;
     private String imgUrl;
+    private String excerpt;
+
+    public String getExcerpt() {
+        return excerpt;
+    }
+
+    public void setExcerpt(String excerpt) {
+        this.excerpt = excerpt;
+    }
 
     public LocalDateTime getStartTime() {
         return startTime;

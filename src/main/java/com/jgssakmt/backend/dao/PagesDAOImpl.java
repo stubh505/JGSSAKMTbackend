@@ -5,6 +5,7 @@ import com.jgssakmt.backend.entity.ParagraphsEntity;
 import com.jgssakmt.backend.model.Pages;
 import com.jgssakmt.backend.model.Paragraph;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository(value = "pagesDAO")
 public class PagesDAOImpl implements PagesDAO {
 
     @Autowired
@@ -19,24 +21,22 @@ public class PagesDAOImpl implements PagesDAO {
 
     @Override
     public Pages getPage(Integer pageId) throws Exception {
-        Query query = entityManager.createQuery("select b from PagesEntity b where b.pageId = :pageId");
-        query.setParameter("pageId", pageId);
+        PagesEntity pageEntity = entityManager.find(PagesEntity.class, pageId);
 
         Pages page = null;
-        List<PagesEntity> pageEntities = query.getResultList();
-
-        if (!pageEntities.isEmpty()) {
-            PagesEntity pageEntity = pageEntities.get(0);
+        if (pageEntity != null) {
             page = new Pages();
             page.setPageId(pageEntity.getPageId());
             page.setEdited(pageEntity.getEdited());
             page.setPosted(pageEntity.getPosted());
             page.setHeader(pageEntity.getHeader());
+            page.setExcerpt(pageEntity.getExcerpt());
 
             List<Paragraph> paras = null;
 
             if (pageEntity.getParagraphs() != null && !pageEntity.getParagraphs().isEmpty()) {
                 List<ParagraphsEntity> paragraphs = pageEntity.getParagraphs();
+                paras = new ArrayList<>();
 
                 for (ParagraphsEntity pe:paragraphs) {
                     Paragraph para = new Paragraph();
@@ -62,6 +62,7 @@ public class PagesDAOImpl implements PagesDAO {
         pagesEntity.setHeader(page.getHeader());
         pagesEntity.setEdited(LocalDateTime.now());
         pagesEntity.setPosted(pagesEntity.getEdited());
+        pagesEntity.setExcerpt(page.getExcerpt());
 
         List<ParagraphsEntity> paragraphsEntities = null;
 
@@ -78,26 +79,22 @@ public class PagesDAOImpl implements PagesDAO {
             }
         }
 
-        pagesEntity.setParagraphs(paragraphsEntities);
-
         entityManager.persist(pagesEntity);
+
+        pagesEntity.setParagraphs(paragraphsEntities);
 
         return pagesEntity.getPageId();
     }
 
     @Override
     public Pages editPage(Integer pageId, Pages page) throws Exception {
-        Query query = entityManager.createQuery("select b from PagesEntity b where b.pageId = :pageId");
-        query.setParameter("pageId", pageId);
+        PagesEntity pageEntity = entityManager.find(PagesEntity.class, pageId);
 
-        List<PagesEntity> pageEntities = query.getResultList();
-
-        if (!pageEntities.isEmpty()) {
-            PagesEntity pageEntity = pageEntities.get(0);
-
+        if (pageEntity != null) {
             pageEntity.setEdited(LocalDateTime.now());
             pageEntity.setHeader(page.getHeader());
             pageEntity.setPosted(page.getPosted());
+            pageEntity.setExcerpt(page.getExcerpt());
 
             List<ParagraphsEntity> paragraphsEntities = null;
 
@@ -114,9 +111,9 @@ public class PagesDAOImpl implements PagesDAO {
                 }
             }
 
-            pageEntity.setParagraphs(paragraphsEntities);
-
             entityManager.persist(pageEntity);
+
+            pageEntity.setParagraphs(paragraphsEntities);
 
             page.setEdited(pageEntity.getEdited());
 
@@ -128,14 +125,10 @@ public class PagesDAOImpl implements PagesDAO {
 
     @Override
     public Integer deletePage(Integer pageId) throws Exception {
-        Query query = entityManager.createQuery("select b from PagesEntity b where b.pageId = :pageId");
-        query.setParameter("pageId", pageId);
+        PagesEntity pageEntity = entityManager.find(PagesEntity.class, pageId);
 
-        List<PagesEntity> pageEntities = query.getResultList();
-
-        if (!pageEntities.isEmpty()) {
-            PagesEntity pageEntity = pageEntities.get(0);
-
+        Pages page = null;
+        if (pageEntity != null) {
             entityManager.remove(pageEntity);
 
             return pageEntity.getPageId();

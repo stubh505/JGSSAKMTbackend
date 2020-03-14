@@ -1,15 +1,31 @@
 package com.jgssakmt.backend.entity;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "event_s")
 public class EventsEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer eventId;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private Integer eventId;
+    @Column(name = "e_name")
     private String name;
+    @Column(name = "e_description")
     private String description;
     private String imgUrl;
+    private String excerpt;
+
+    public String getExcerpt() {
+        return excerpt;
+    }
+
+    public void setExcerpt(String excerpt) {
+        this.excerpt = excerpt;
+    }
 
     public LocalDateTime getStartTime() {
         return startTime;

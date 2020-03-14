@@ -30,6 +30,7 @@ public class BlogsDAOImpl implements BlogsDAO{
             blog.setBlogId(blogEntity.getBlogId());
             blog.setEdited(blogEntity.getEdited());
             blog.setPosted(blogEntity.getPosted());
+            blog.setExcerpt(blogEntity.getExcerpt());
             blog.setContent(blogEntity.getContent());
             blog.setTitle(blogEntity.getTitle());
             blog.setImgUrl(blogEntity.getImgUrl());
@@ -44,6 +45,7 @@ public class BlogsDAOImpl implements BlogsDAO{
         blogsEntity.setTitle(blog.getTitle());
         blogsEntity.setContent(blog.getContent());
         blogsEntity.setImgUrl(blog.getImgUrl());
+        blogsEntity.setExcerpt(blog.getExcerpt());
         blogsEntity.setEdited(LocalDateTime.now());
         blogsEntity.setPosted(blogsEntity.getEdited());
 
@@ -65,6 +67,7 @@ public class BlogsDAOImpl implements BlogsDAO{
             blogEntity.setEdited(LocalDateTime.now());
             blogEntity.setImgUrl(blog.getImgUrl());
             blogEntity.setContent(blog.getContent());
+            blogEntity.setExcerpt(blog.getExcerpt());
             blogEntity.setTitle(blog.getTitle());
 
             entityManager.persist(blogEntity);

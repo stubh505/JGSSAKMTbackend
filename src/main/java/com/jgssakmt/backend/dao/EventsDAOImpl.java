@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
-@Repository
+@Repository(value = "eventsDAO")
 public class EventsDAOImpl implements EventsDAO {
 
     @Autowired
@@ -29,6 +29,7 @@ public class EventsDAOImpl implements EventsDAO {
             event.setEventId(eventEntity.getEventId());
             event.setDescription(eventEntity.getDescription());
             event.setEndTime(eventEntity.getEndTime());
+            event.setExcerpt(eventEntity.getExcerpt());
             event.setImgUrl(eventEntity.getImgUrl());
             event.setName(eventEntity.getName());
             event.setStartTime(eventEntity.getStartTime());
@@ -44,6 +45,7 @@ public class EventsDAOImpl implements EventsDAO {
         eventsEntity.setDescription(event.getDescription());
         eventsEntity.setEndTime(event.getEndTime());
         eventsEntity.setName(event.getName());
+        eventsEntity.setExcerpt(event.getExcerpt());
         eventsEntity.setStartTime(event.getStartTime());
 
         entityManager.persist(eventsEntity);
@@ -65,6 +67,7 @@ public class EventsDAOImpl implements EventsDAO {
             eventEntity.setEndTime(event.getEndTime());
             eventEntity.setImgUrl(event.getImgUrl());
             eventEntity.setName(event.getName());
+            eventEntity.setExcerpt(event.getExcerpt());
             eventEntity.setStartTime(event.getStartTime());
             
             entityManager.persist(eventEntity);

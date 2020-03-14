@@ -10,6 +10,15 @@ public class Pages {
     private List<Paragraph> paragraphs;
     private LocalDateTime posted;
     private LocalDateTime edited;
+    private String excerpt;
+
+    public String getExcerpt() {
+        return excerpt;
+    }
+
+    public void setExcerpt(String excerpt) {
+        this.excerpt = excerpt;
+    }
 
     public void setParagraphs(List<Paragraph> paragraphs) {
         this.paragraphs = paragraphs;

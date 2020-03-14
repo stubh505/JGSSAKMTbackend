@@ -10,6 +10,15 @@ public class Blogs {
     private String imgUrl;
     private LocalDateTime posted;
     private LocalDateTime edited;
+    private String excerpt;
+
+    public String getExcerpt() {
+        return excerpt;
+    }
+
+    public void setExcerpt(String excerpt) {
+        this.excerpt = excerpt;
+    }
 
     public LocalDateTime getPosted() {
         return posted;

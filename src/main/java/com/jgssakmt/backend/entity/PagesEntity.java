@@ -1,15 +1,31 @@
 package com.jgssakmt.backend.entity;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Entity
+@Table(name = "pages")
 public class PagesEntity {
 
-    private String header;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer pageId;
+    private String header;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "page_id")
     private List<ParagraphsEntity> paragraphs;
+    private String excerpt;
     private LocalDateTime posted;
     private LocalDateTime edited;
+
+    public String getExcerpt() {
+        return excerpt;
+    }
+
+    public void setExcerpt(String excerpt) {
+        this.excerpt = excerpt;
+    }
 
     public void setParagraphs(List<ParagraphsEntity> paragraphs) {
         this.paragraphs = paragraphs;
