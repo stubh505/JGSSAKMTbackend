@@ -3,6 +3,7 @@ package com.jgssakmt.backend.service;
 import com.jgssakmt.backend.dao.EventsDAO;
 import com.jgssakmt.backend.exeptions.EventsException;
 import com.jgssakmt.backend.model.Events;
+import com.jgssakmt.backend.validator.EventsValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class EventsServiceImpl implements EventsService {
 
     @Override
     public Integer addNewEvent(Events event) throws Exception {
+        EventsValidator.validate(event);
         Integer eventId = eventsDAO.addNewEvent(event);
 
         if (eventId == null)
@@ -32,6 +34,7 @@ public class EventsServiceImpl implements EventsService {
 
     @Override
     public Events editEvent(Integer eventId, Events event) throws Exception {
+        EventsValidator.validate(event);
         Events newEvent = eventsDAO.editEvent(eventId, event);
 
         if (newEvent == null)

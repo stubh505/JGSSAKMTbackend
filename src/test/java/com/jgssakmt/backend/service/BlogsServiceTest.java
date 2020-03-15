@@ -82,13 +82,14 @@ public class BlogsServiceTest {
         b.setTitle("Test Blog");
 
         Mockito.when(blogsDAO.addNewBlog(Mockito.any())).thenReturn(Mockito.anyInt());
+
         Integer bId = blogsService.addNewBlog(b);
         Assert.assertNotNull(bId);
     }
 
     @Test
     public void addNewBlogInvalidTest1() throws Exception {
-        expectedException.expect(Exception.class);
+        expectedException.expect(BlogsException.class);
 
         Blogs b = new Blogs();
         b.setEdited(LocalDateTime.now());
@@ -102,7 +103,7 @@ public class BlogsServiceTest {
 
     @Test
     public void addNewBlogInvalidTest2() throws Exception {
-        expectedException.expect(Exception.class);
+        expectedException.expect(BlogsException.class);
 
         Blogs b = new Blogs();
         b.setEdited(LocalDateTime.now());
@@ -116,7 +117,7 @@ public class BlogsServiceTest {
 
     @Test
     public void addNewBlogInvalidTest3() throws Exception {
-        expectedException.expect(Exception.class);
+        expectedException.expect(BlogsException.class);
 
         Blogs b = new Blogs();
         b.setEdited(LocalDateTime.now());
@@ -136,12 +137,16 @@ public class BlogsServiceTest {
         b.setContent("This is a test blog");
         b.setTitle("Test Blog");
 
+        Mockito.when(blogsDAO.editBlog(Mockito.anyInt(), Mockito.any())).thenReturn(b);
+
         Blogs bId = blogsService.editBlog(1000, b);
         Assert.assertNotNull(bId);
     }
 
     @Test
     public void editBlogInvalidTest() throws Exception {
+        expectedException.expect(BlogsException.class);
+
         Blogs b = new Blogs();
         b.setExcerpt("This is a test excerpt.");
         b.setImgUrl("http://abc.co");
@@ -149,18 +154,22 @@ public class BlogsServiceTest {
         b.setTitle("Test Blog");
 
         Blogs bId = blogsService.editBlog(550, b);
-        Assert.assertNull(bId);
     }
 
     @Test
     public void deleteBlogValidTest() throws Exception {
+        Mockito.when(blogsDAO.deleteBlog(Mockito.anyInt())).thenReturn(Mockito.anyInt());
+
         Integer bId = blogsService.deleteBlog(1000);
         Assert.assertNotNull(bId);
     }
 
     @Test
     public void deleteBlogInvalidTest() throws Exception {
+        expectedException.expect(BlogsException.class);
+
+        Mockito.when(blogsDAO.deleteBlog(Mockito.anyInt())).thenReturn(null);
+
         Integer bId = blogsService.deleteBlog(550);
-        Assert.assertNull(bId);
     }
 }

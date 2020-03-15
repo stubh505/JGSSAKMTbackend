@@ -35,6 +35,7 @@ public class BlogsServiceImpl implements BlogsService {
 
     @Override
     public Blogs editBlog(Integer blogId, Blogs blog) throws Exception {
+        BlogsValidator.validate(blog);
         Blogs newBlog = blogsDAO.editBlog(blogId, blog);
 
         if (newBlog == null)

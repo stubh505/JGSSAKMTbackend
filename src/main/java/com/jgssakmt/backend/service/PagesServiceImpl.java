@@ -3,6 +3,7 @@ package com.jgssakmt.backend.service;
 import com.jgssakmt.backend.dao.PagesDAO;
 import com.jgssakmt.backend.exeptions.PagesException;
 import com.jgssakmt.backend.model.Pages;
+import com.jgssakmt.backend.validator.PagesValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class PagesServiceImpl implements PagesService {
 
     @Override
     public Integer addNewPage(Pages page) throws Exception {
+        PagesValidator.validate(page);
         Integer pageId = pagesDAO.addNewPage(page);
 
         if (pageId == null)
@@ -32,6 +34,7 @@ public class PagesServiceImpl implements PagesService {
 
     @Override
     public Pages editPage(Integer pageId, Pages page) throws Exception {
+        PagesValidator.validate(page);
         Pages newPage = pagesDAO.editPage(pageId, page);
 
         if (newPage == null)
