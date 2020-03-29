@@ -11,6 +11,15 @@ public class Pages {
     private LocalDateTime posted;
     private LocalDateTime edited;
     private String excerpt;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getExcerpt() {
         return excerpt;

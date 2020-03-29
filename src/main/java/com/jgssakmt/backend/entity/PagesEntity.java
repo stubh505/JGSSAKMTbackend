@@ -18,6 +18,15 @@ public class PagesEntity {
     private String excerpt;
     private LocalDateTime posted;
     private LocalDateTime edited;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getExcerpt() {
         return excerpt;

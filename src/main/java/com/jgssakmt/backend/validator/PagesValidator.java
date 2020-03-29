@@ -12,6 +12,8 @@ public class PagesValidator {
             throw new PagesException("Invalid page name format.");
         if (b.getExcerpt() == null || b.getExcerpt().length() > 120 || b.getExcerpt().equals(""))
             throw new PagesException("Invalid page excerpt format.");
+        if (b.getName() == null || !b.getName().matches("[A-Za-z0-9]+"))
+            throw new PagesException("Invalid page name format.");
         if (b.getParagraphs() != null && !b.getParagraphs().isEmpty()) {
             if (!validateParagraphs(b.getParagraphs()))
                 throw new PagesException("Invalid page paragraph format.");

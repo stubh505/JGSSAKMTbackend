@@ -25,6 +25,7 @@ public class PagesDAOImpl implements PagesDAO {
         Pages page = null;
         if (pageEntity != null) {
             page = new Pages();
+            page.setName(pageEntity.getName());
             page.setPageId(pageEntity.getPageId());
             page.setEdited(pageEntity.getEdited());
             page.setPosted(pageEntity.getPosted());
@@ -61,6 +62,7 @@ public class PagesDAOImpl implements PagesDAO {
         pagesEntity.setHeader(page.getHeader());
         pagesEntity.setEdited(LocalDateTime.now());
         pagesEntity.setPosted(pagesEntity.getEdited());
+        pagesEntity.setName(page.getName());
         pagesEntity.setExcerpt(page.getExcerpt());
 
         List<ParagraphsEntity> paragraphsEntities = null;
@@ -90,6 +92,7 @@ public class PagesDAOImpl implements PagesDAO {
         PagesEntity pageEntity = entityManager.find(PagesEntity.class, pageId);
 
         if (pageEntity != null) {
+            pageEntity.setName(page.getName());
             pageEntity.setEdited(LocalDateTime.now());
             pageEntity.setHeader(page.getHeader());
             pageEntity.setPosted(page.getPosted());
