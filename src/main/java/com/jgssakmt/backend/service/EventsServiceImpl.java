@@ -7,7 +7,10 @@ import com.jgssakmt.backend.validator.EventsValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service(value = "eventsService")
+@Transactional
 public class EventsServiceImpl implements EventsService {
 
     @Autowired

@@ -7,7 +7,10 @@ import com.jgssakmt.backend.validator.BlogsValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service(value = "blogsService")
+@Transactional
 public class BlogsServiceImpl implements BlogsService {
 
     @Autowired
