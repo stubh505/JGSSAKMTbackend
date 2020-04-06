@@ -1,9 +1,77 @@
-create table Blogs (
-   blog_id int,
-   title varchar(100),
-   content varchar(5000),
-   img_url varchar(200)
-   );
+drop table blogs;.
+drop table event_s;
+drop table pages;
+drop table paragraphs;
+drop table contactus
+
+
+
+CREATE TABLE blogs (
+blog_id INT AUTO_INCREMENT,
+title VARCHAR(50) NOT NULL,
+content VARCHAR(2000) NOT NULL,
+excerpt VARCHAR(120) NOT NULL,
+img_url VARCHAR(200),
+posted datetime default CURRENT_TIMESTAMP,
+edited datetime default CURRENT_TIMESTAMP,
+constraint WL_Blogs_Pk primary key (blog_id)
+);
+
+ALTER TABLE blogs auto_increment = 1000;
+
+
+
+CREATE TABLE event_s (
+event_id INT AUTO_INCREMENT,
+e_name VARCHAR(50) NOT NULL,
+e_description VARCHAR(2000) NOT NULL,
+excerpt VARCHAR(120) NOT NULL,
+img_url VARCHAR(200),
+start_time datetime default CURRENT_TIMESTAMP,
+end_time datetime NOT NULL,
+constraint WL_Events_Pk primary key (event_id)
+);
+
+ALTER TABLE event_s auto_increment = 1000;
+
+
+
+CREATE TABLE pages (
+page_id INT AUTO_INCREMENT,
+name VARCHAR(20),
+header VARCHAR(50) NOT NULL,
+excerpt VARCHAR(120) NOT NULL,
+posted datetime default CURRENT_TIMESTAMP,
+edited datetime default CURRENT_TIMESTAMP,
+constraint WL_Pages_Pk primary key (page_id)
+);
+
+ALTER TABLE pages auto_increment = 1000;
+
+
+
+CREATE TABLE paragraphs (
+paragraph_id INT AUTO_INCREMENT,
+header VARCHAR(50) NOT NULL,
+body VARCHAR(2000) NOT NULL,
+img_url VARCHAR(200),
+page_id INT NOT NULL,
+constraint WL_Paragraphs_Pk primary key (paragraph_id)
+);
+
+ALTER TABLE paragraphs ADD CONSTRAINT WL_Paragraph_Page_FK FOREIGN KEY ( page_id ) REFERENCES pages ( page_id );
+ALTER TABLE paragraphs auto_increment = 1000;
+
+
+
+CREATE TABLE contactus (
+id INT AUTO_INCREMENT,
+email VARCHAR(50) NOT NULL,
+name VARCHAR(30) NOT NULL,
+mobile VARCHAR(11) NOT NULL,
+message VARCHAR(2000),
+constraint WL_ContactUs_Pk primary key (id)
+);
 
 insert into Blogs values (1, 'First Blog', 'First blog body', 'https://');
 

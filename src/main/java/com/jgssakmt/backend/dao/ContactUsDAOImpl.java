@@ -20,6 +20,7 @@ public class ContactUsDAOImpl implements ContactUsDAO {
         if (contactUs != null) {
             ContactUsEntity contactUsEntity = new ContactUsEntity();
             contactUsEntity.setEmail(contactUs.getEmail());
+            contactUsEntity.setName(contactUs.getName());
             contactUsEntity.setMessage(contactUs.getMessage());
             contactUsEntity.setMobile(contactUs.getMobile());
 

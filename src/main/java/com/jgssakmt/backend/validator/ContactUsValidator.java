@@ -9,6 +9,8 @@ public class ContactUsValidator {
             throw new ContactUsException("Incorrect Email Format");
         if (contactUs.getMobile() != null || !contactUs.getMobile().matches("[1-9]{1}[0-9]{9}"))
             throw new ContactUsException("Incorrect Mobile Number Format");
+        if (contactUs.getName() == null || contactUs.getName().equals(""))
+            throw new ContactUsException("Enter a Name");
         if (contactUs.getMessage() == null)
             throw new ContactUsException("Enter a Message");
     }

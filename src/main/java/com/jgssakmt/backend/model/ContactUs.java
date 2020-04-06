@@ -5,7 +5,16 @@ public class ContactUs {
     private int id;
     private String email;
     private String mobile;
+    private String name;
     private String message;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
