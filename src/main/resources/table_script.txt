@@ -52,7 +52,7 @@ ALTER TABLE pages auto_increment = 1000;
 
 CREATE TABLE paragraphs (
 paragraph_id INT AUTO_INCREMENT,
-header VARCHAR(50) NOT NULL,
+header VARCHAR(100) NOT NULL,
 body VARCHAR(2000) NOT NULL,
 img_url VARCHAR(200),
 page_id INT NOT NULL,
@@ -61,6 +61,28 @@ constraint WL_Paragraphs_Pk primary key (paragraph_id)
 
 ALTER TABLE paragraphs ADD CONSTRAINT WL_Paragraph_Page_FK FOREIGN KEY ( page_id ) REFERENCES pages ( page_id );
 ALTER TABLE paragraphs auto_increment = 1000;
+
+
+
+
+INSERT INTO pages VALUES (1001, "About Us", "About", "Find out more about us as an Organization", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO paragraphs VALUES (1001, "Joy Guru Shri Shri Ashok kumar Mukhopadhyay Sevakendra Trust",
+"<p>Welcome to the official Website of Joyguru Sri Sri Ashok Kumar Mukhopadhyay Sevakendra Trust, which is a Charitable Religious Trust, donations
+under which are exempted under Section 80G of Indian Income Tax Act.</p><p>On July 23, 2004 our Venerable, Beloved Idol & Guide in the Manly hood Sri
+Sri Gurudev Ashok Kumar Mukhopadhyay left His body of flesh and blood plunging us in grief and distress. The disciples, devotees, relatives
+followers discussed in a meeting that, we should preserve the house where our Sri Gurudev lived His last life and which is His named property (as
+He saw with His mortal eyes), and we must form an organization (as He desired) under His name and the object of the said organization would be to
+follow His Lessons. This is how “Joy Guru Sri Sri Ashok Kumar Mukhopadhyay Seva Kendra Trust” saw daylight on the auspicious day of the 4th of
+August 2004. Sri Gurudev was born to this world on 4th February 1950 on the banks of Holy Ganges in Ballavpur Street in Srirampur, Bengal. The
+mission of our beloved Sri Gurudev was to donate even His last penny to the actually needy people, whoever He may be and without considering the
+cast and creed. The Trust has been maintaining that tradition to fulfil Gurudev’s wishes.</p>", "", 1001);
+
+INSERT INTO paragraphs VALUES (1002, "Currently the principal activities of Sevakendra is mainly into three categories", "<ol><li>Medical -
+comprising of free of cost Homeopathy Medicines, Dental Care, Eye Care.</li><li>Educational - in form of tuitions to several needy children free
+of cost.</li><li>Several relief measures to serve the needy persons according to the wish of ‘Sri Sri Gurudev’.</li></ol><br>We encourage like
+minded people to be a Member of the Trust. There is a separate section for Membership. There is also a section for Donation for those who wish to
+contribute and be part of the Trust activities.", "", 1001);
 
 
 

@@ -21,7 +21,7 @@ public class EventsAPI {
     EventsService eventsService;
 
     @GetMapping(value = "/getEvent/{eventId}")
-    public ResponseEntity<Events> getBlog(Integer eventId) throws Exception {
+    public ResponseEntity<Events> getEvent(@PathVariable Integer eventId) throws Exception {
         try {
             Events event = eventsService.getEvent(eventId);
             return new ResponseEntity<>(event, HttpStatus.OK);

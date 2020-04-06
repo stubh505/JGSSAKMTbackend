@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository(value = "contactUsDAO")
 public class ContactUsDAOImpl implements ContactUsDAO {
@@ -30,5 +33,46 @@ public class ContactUsDAOImpl implements ContactUsDAO {
         }
 
         return i;
+    }
+
+    @Override
+    public Integer deleteMessage(Integer id) throws Exception {
+        Integer i = null;
+
+        if (id != null) {
+            ContactUsEntity entity = entityManager.find(ContactUsEntity.class, id);
+             if (entity != null) {
+                 entityManager.remove(entity);
+
+                 i = entity.getId();
+             }
+        }
+
+        return i;
+    }
+
+    @Override
+    public List<ContactUs> getMessages() throws Exception {
+        List<ContactUs> messages = null;
+        ContactUs contactUs = null;
+
+        Query query = entityManager.createQuery("select c from ContactUsEntity c");
+        List<ContactUsEntity> messageEntities = query.getResultList();
+
+        if (messageEntities != null && !messageEntities.isEmpty()) {
+            messages = new ArrayList<>();
+
+            for (ContactUsEntity entity:messageEntities) {
+                contactUs = new ContactUs();
+                contactUs.setMobile(entity.getMobile());
+                contactUs.setMessage(entity.getMessage());
+                contactUs.setName(entity.getName());
+                contactUs.setEmail(entity.getEmail());
+                contactUs.setId(entity.getId());
+
+                messages.add(contactUs);
+            }
+        }
+        return messages;
     }
 }
