@@ -40,17 +40,17 @@ public class PagesAPI {
         }
     }
 
-    @PostMapping(value = "/editPage")
-    public ResponseEntity<Pages> editPage(@RequestBody Pages page) throws Exception {
+    @PutMapping(value = "/editPage/{id}")
+    public ResponseEntity<Pages> editPage(@PathVariable Integer id, @RequestBody Pages page) throws Exception {
         try {
-            Pages pageId = pagesService.editPage(page.getPageId(), page);
+            Pages pageId = pagesService.editPage(id, page);
             return new ResponseEntity<>(pageId, HttpStatus.OK);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
     }
 
-    @GetMapping(value = "/deletePage/{pageId}")
+    @DeleteMapping(value = "/deletePage/{pageId}")
     public ResponseEntity<Integer> deletePage(@PathVariable Integer pageId) throws Exception {
         try {
             Integer page = pagesService.deletePage(pageId);

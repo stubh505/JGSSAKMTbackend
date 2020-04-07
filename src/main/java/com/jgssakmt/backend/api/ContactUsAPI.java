@@ -32,7 +32,7 @@ public class ContactUsAPI {
         }
     }
 
-    @GetMapping(value = "/deleteMessage/{id}")
+    @DeleteMapping(value = "/deleteMessage/{id}")
     public ResponseEntity<Integer> deleteMessage(@PathVariable Integer id) {
         try {
             Integer blogId = contactUsService.deleteMessage(id);

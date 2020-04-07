@@ -42,17 +42,17 @@ public class BlogsAPI {
         }
     }
 
-    @PostMapping(value = "/editBlog")
-    public ResponseEntity<Blogs> editBlog(@RequestBody Blogs blog) throws Exception {
+    @PutMapping(value = "/editBlog/{id}")
+    public ResponseEntity<Blogs> editBlog(@PathVariable Integer id, @RequestBody Blogs blog) throws Exception {
         try {
-            Blogs blogId = blogsService.editBlog(blog.getBlogId(), blog);
+            Blogs blogId = blogsService.editBlog(id, blog);
             return new ResponseEntity<>(blogId, HttpStatus.OK);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
     }
 
-    @GetMapping(value = "/deleteBlog/{blogId}")
+    @DeleteMapping(value = "/deleteBlog/{blogId}")
     public ResponseEntity<Integer> deleteBlog(@PathVariable Integer blogId) throws Exception {
         try {
             Integer blog = blogsService.deleteBlog(blogId);

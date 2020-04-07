@@ -42,17 +42,17 @@ public class EventsAPI {
         }
     }
 
-    @PostMapping(value = "/editEvent")
-    public ResponseEntity<Events> editEvent(@RequestBody Events event) throws Exception {
+    @PutMapping(value = "/editEvent/{id}")
+    public ResponseEntity<Events> editEvent(@PathVariable Integer id, @RequestBody Events event) throws Exception {
         try {
-            Events eventId = eventsService.editEvent(event.getEventId(), event);
+            Events eventId = eventsService.editEvent(id, event);
             return new ResponseEntity<>(eventId, HttpStatus.OK);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
     }
 
-    @GetMapping(value = "/deleteEvent/{eventId}")
+    @DeleteMapping(value = "/deleteEvent/{eventId}")
     public ResponseEntity<Integer> deleteEvent(@PathVariable Integer eventId) throws Exception {
         try {
             Integer event = eventsService.deleteEvent(eventId);
