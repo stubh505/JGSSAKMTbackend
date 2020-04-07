@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("EventsAPI")
@@ -57,6 +59,36 @@ public class EventsAPI {
             return new ResponseEntity<>(event, HttpStatus.OK);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+    }
+
+    @GetMapping(value = "/getPastEvents")
+    public ResponseEntity<List<Events>> getPastEvents() throws Exception {
+        try {
+            List<Events> events = eventsService.getPastEvents();
+            return new ResponseEntity<>(events, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+    }
+
+    @GetMapping(value = "/getAllEvents")
+    public ResponseEntity<List<Events>> getAllEvents() throws Exception {
+        try {
+            List<Events> events = eventsService.getAllEvents();
+            return new ResponseEntity<>(events, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+    }
+
+    @GetMapping(value = "/getUpComingEvents")
+    public ResponseEntity<List<Events>> getUpComingEvents() throws Exception {
+        try {
+            List<Events> events = eventsService.getUpComingEvents();
+            return new ResponseEntity<>(events, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
 }

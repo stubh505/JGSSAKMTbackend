@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("BlogsAPI")
@@ -57,6 +59,16 @@ public class BlogsAPI {
             return new ResponseEntity<>(blog, HttpStatus.OK);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+    }
+
+    @GetMapping(value = "/getAllBlogs")
+    public ResponseEntity<List<Blogs>> getAllBlogs() {
+        try {
+            List<Blogs> blog = blogsService.getAllBlogs();
+            return new ResponseEntity<>(blog, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
 }

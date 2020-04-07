@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service(value = "blogsService")
 @Transactional
@@ -53,5 +54,15 @@ public class BlogsServiceImpl implements BlogsService {
         if (blog == null)
             throw new BlogsException();
         return blog;
+    }
+
+    @Override
+    public List<Blogs> getAllBlogs() throws Exception {
+        List<Blogs> blogs = blogsDAO.getAllBlogs();
+
+        if (blogs == null || blogs.isEmpty())
+            throw new BlogsException("Error getting blogs");
+
+        return blogs;
     }
 }

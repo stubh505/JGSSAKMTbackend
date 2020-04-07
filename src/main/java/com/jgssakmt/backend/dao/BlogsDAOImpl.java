@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class BlogsDAOImpl implements BlogsDAO{
@@ -80,5 +83,30 @@ public class BlogsDAOImpl implements BlogsDAO{
         }
 
         return null;
+    }
+
+    @Override
+    public List<Blogs> getAllBlogs() throws Exception {
+        List<Blogs> blogs = null;
+        Blogs b;
+
+        Query query = entityManager.createQuery("select b from blogs b");
+        List<BlogsEntity> blogsEntities = query.getResultList();
+
+        if (blogsEntities != null && !blogsEntities.isEmpty()) {
+            blogs = new ArrayList<>();
+
+            for (BlogsEntity be:blogsEntities) {
+                b = new Blogs();
+                b.setExcerpt(be.getExcerpt());
+                b.setTitle(be.getTitle());
+                b.setImgUrl(be.getImgUrl());
+                b.setPosted(be.getPosted());
+
+                blogs.add(b);
+            }
+        }
+
+        return blogs;
     }
 }

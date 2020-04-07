@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository(value = "eventsDAO")
 public class EventsDAOImpl implements EventsDAO {
@@ -81,5 +85,91 @@ public class EventsDAOImpl implements EventsDAO {
         }
         
         return null;
+    }
+
+    @Override
+    public List<Events> getPastEvents() throws Exception {
+        List<Events> events = null;
+        Events e;
+
+        Query query = entityManager.createQuery("select e from EventsEntity e where e.endTime < :today");
+        query.setParameter("today", LocalDateTime.now());
+
+        List<EventsEntity> eventsEntities = query.getResultList();
+
+        if (eventsEntities != null && !eventsEntities.isEmpty()) {
+            events = new ArrayList<>();
+
+            for (EventsEntity ee:eventsEntities) {
+                e = new Events();
+                e.setName(ee.getName());
+                e.setEndTime(ee.getEndTime());
+                e.setStartTime(ee.getStartTime());
+                e.setEventId(ee.getEventId());
+                e.setExcerpt(ee.getExcerpt());
+                e.setImgUrl(ee.getImgUrl());
+
+                events.add(e);
+            }
+        }
+
+        return events;
+    }
+
+    @Override
+    public List<Events> getAllEvents() throws Exception {
+        List<Events> events = null;
+        Events e;
+
+        Query query = entityManager.createQuery("select e from EventsEntity e");
+
+        List<EventsEntity> eventsEntities = query.getResultList();
+
+        if (eventsEntities != null && !eventsEntities.isEmpty()) {
+            events = new ArrayList<>();
+
+            for (EventsEntity ee:eventsEntities) {
+                e = new Events();
+                e.setName(ee.getName());
+                e.setEndTime(ee.getEndTime());
+                e.setStartTime(ee.getStartTime());
+                e.setEventId(ee.getEventId());
+                e.setExcerpt(ee.getExcerpt());
+                e.setImgUrl(ee.getImgUrl());
+
+                events.add(e);
+            }
+        }
+
+        return events;
+    }
+
+    @Override
+    public List<Events> getUpComingEvents() throws Exception {
+        List<Events> events = null;
+        Events e;
+
+        Query query = entityManager.createQuery("select e from EventsEntity e where e.endTime >= :today");
+        query.setParameter("today", LocalDateTime.now());
+
+        List<EventsEntity> eventsEntities = query.getResultList();
+
+        if (eventsEntities != null && !eventsEntities.isEmpty()) {
+            events = new ArrayList<>();
+
+            for (EventsEntity ee:eventsEntities) {
+                e = new Events();
+                e.setName(ee.getName());
+                e.setEndTime(ee.getEndTime());
+                e.setStartTime(ee.getStartTime());
+                e.setEventId(ee.getEventId());
+                e.setExcerpt(ee.getExcerpt());
+                e.setImgUrl(ee.getImgUrl());
+
+                events.add(e);
+            }
+        }
+
+        return events;
     }
 }

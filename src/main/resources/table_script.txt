@@ -64,6 +64,16 @@ ALTER TABLE paragraphs auto_increment = 1000;
 
 
 
+CREATE TABLE contactus (
+id INT AUTO_INCREMENT,
+email VARCHAR(50) NOT NULL,
+name VARCHAR(30) NOT NULL,
+mobile VARCHAR(11) NOT NULL,
+message VARCHAR(2000),
+constraint WL_ContactUs_Pk primary key (id)
+);
+
+
 
 INSERT INTO pages VALUES (1001, "About Us", "About", "Find out more about us as an Organization", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
@@ -86,15 +96,65 @@ contribute and be part of the Trust activities.", "", 1001);
 
 
 
-CREATE TABLE contactus (
-id INT AUTO_INCREMENT,
-email VARCHAR(50) NOT NULL,
-name VARCHAR(30) NOT NULL,
-mobile VARCHAR(11) NOT NULL,
-message VARCHAR(2000),
-constraint WL_ContactUs_Pk primary key (id)
-);
+INSERT INTO blogs VALUES (1001, 'Durga Puja 2016', '<p>Durga Puja is celebrated at Tara Ma Home in Srirampur with plenty of devotion, love and
+grandeur. Sri Gurudev started performing Durga Mata Puja in the year 2000. Since then the tradition is continuing and Gurudev ’s devotees have
+been performing Durga Puja in most traditional style. Beautiful Ma Durga is at her very loving best here. Puja is performed with plenty of love,
+affection, fervor and devotion.</p><p>The prime attraction is the very special Puja performed with all traditional rituals in most minutest
+details during the 4-day festival. The Maha Ashtami Bhog is very special indeed that was carefully chosen by our Gurudev since the year Puja was
+started. The special Bhog consists of 51 carefully chosen items deliciously cooked by Gurudev ’s loving devotees. Over 2,500 Bhakts, Devotees
+take Prasad during Saptami, Ashtami and Navami. Day 4 is always sad when Mother Durga returns to her abode. This Puja is surely the Best in the
+world in terms of the traditional style Puja is performed in every possible detail.</p>', 'Durga Puja is celebrated at Tara Ma Home in Srirampur
+with plenty of devotion, love and grandeur.', 'https://photos.app.goo.gl/D687WyU9oax9zASP8', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-insert into Blogs values (1, 'First Blog', 'First blog body', 'https://');
+INSERT INTO blogs VALUES (1002, 'Mahesh Rath Yatra', '<p>On the Bengali month Asadh or Ashar Shukla Dwitia Lord Jagannath, Lord Balabhadra and
+Mata Subhadra out for annual Procession or RathYatra or by Chariot after recovered from Fever caused by the yearly bathing at Snan Yatra.</p><p>
+From the year of 1356 the Rathyatra is celebrated at Mahesh. Bramhchari Dhrubananda after Consecration of the Deities started the Tradition which
+is from the Jagannath dham Puri. After His mortal life KamlakarPiplai the Parshad of Mahaprovu Sri Chaitanya dev was taken charge to serve the
+seva of the Deities as Sri Sri Chaitanyadev wishes…</p><p>It is believed that the previous Rath was made of wood and it was destroyed time to
+time.</p><p>The present 50 feet Iron Ratha has 12 iron wheels. The Ratha is made in traditional Bengali Nabaratna style, e.g. it has nine churas.
+The famous divine personality attend the Rathyatra is Sri Krishna Chaitanya, Bhagaban Ramakrishna, k,Mata Sarada, and many many more…</p><p>The
+rath was build by Burn Standard Company of British era and the Expenditure incurred by Dewan Krishna Chandra Basu of famous Basu family of North
+Calcutta. From the beginning they are maintaining thus auspicious festival of Mahesh. The Iron build Rath is platformed with wood and the grills
+and some Iron parts was destroyed in course of time.</p>', 'On the Bengali month Asadh or Ashar Shukla Dwitia Lord Jagannath, Lord Balabhadra and
+Mata Subhadra...', 'https://photos.app.goo.gl/u2LqZX62hrxb1VEv6', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO blogs VALUES (1003, 'Annual General Meeting', '<p>Every year during August the Annual General Meeting of the Trust is held at Tara Ma Home
+at Chatra, Srirampur. Advance Notices are sent to all Members and Invitees who wish to attend the AGM. The Annual Audited Accounts of the Trust
+is presented to all Members and Invitees during the AGM.</p><p>The Accounts get formally approved at the AGM after discussions amongst all
+Members. Discussions are held where every Member and Invitee is explained all activities undertakes during the past financial year. Planned
+activities for next financial year are discussed and approved at the AGM. Accordingly the Budget is approved.</p>', 'Every year during August the
+Annual General Meeting of the Trust is held at Tara Ma Home at Chatra, Srirampur.', '', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO blogs VALUES (1004, 'Gurudev’s Birthday Celebration 4th February', '<p>Every year 4th February is celebrated with grandeur and fervor.
+Plenty of Devotees come to Tara Ma Home at Chatra, Srirampur since early morning. Throughout the day plenty of activities take place. Sri Gurudev’s
+devotees and disciples perform Aarti, Songs, Yagna. There is plenty of festivities all around. The mood is of celebration throughout the day.</p>
+<p>Sri Gurudev is offered plenty of variety of food during the day round the clock with all those he had loved to eat. Breakfast is followed by a
+grand afternoon lunch.More than 500 disciples come and take the Bhog Prasad. During the evening again kirtans, songs are held performed by several
+devotees and bhakts. 4th February is surely a memorable day for for all followers of Sri Gurudev.</p>', 'Every year 4th February is celebrated with
+grandeur and fervor. Plenty of Devotees come to Tara Ma Home at Serampore.', 'https://photos.app.goo.gl/QzpwBdok7Pyjofoe8', CURRENT_TIMESTAMP,
+CURRENT_TIMESTAMP);
+
+INSERT INTO blogs VALUES (1005, 'Sri Sri Ramakrishna Kathamrita', '<p style="text-align: justify;"><strong>Sri Sri Ramakrishna Kathamrita</strong></p>
+<p style="text-align: justify;">- by M., a son of the Lord and Disciple<br>M. (Mahendra Nath Gupta) elaborated his diaries in five parts of &lsquo;Sri Sri Ramakrishna Kathamrita&lsquo; in Bengali which were first published at Kathamrita Bhawan, 13/2 Guru Prasad Chaudhury Lane, Calcutta in the years 1902, 1905, 1908, 1910 and 1932 respectively.</p>
+<p style="text-align: justify;">Some glimpses of these Great Book in the next few Paras &hellip;.</p>
+<p style="text-align: justify;"><strong>Introduction<br></strong><br>A Brief Life Sketch of Thakur Sri Ramakrishna<br>Birth of Sri Ramakrishna &ndash; father Khudiram and mother Chandramani &ndash; primary school &ndash; worship of Raghuvir &ndash; company of sadhus and listening to the Puranas &ndash; beholds a miraculous light &ndash; comes to Calcutta, and company of sadhus at Kali Temple in Dakshineswar &ndash; sees a miraculous divine form &ndash; Thakur like one mad &ndash; company of sadhus, Bhairavi Brahmani, Totapuri and Thakur&rsquo;s listening to Vedanta at the Kali Temple &ndash; practices spiritual disciplines according to the Tantra and the Puranas &ndash; Thakur&rsquo;s talk with the Mother of the Universe &ndash; goes on pilgrimage &ndash; Thakur&rsquo;s inner circle &ndash; Thakur and his devotees &ndash; Thakur and the Brahmo Samaj &ndash; reconciliation of all religions: Hinduism, Christianity, Islam, and so on &ndash; Thakur&rsquo;s women devotees &ndash; his family of devotees.</p>
+<p style="text-align: justify;">Sri Ramakrishna was born to a pious brahmin family in the inland village of Kamarpukur on the second lunar day of the bright fortnight of Phalgun. The village is in the Hooghly district, about eight miles west of Jehanabad (Aram Bag) and about twenty-six miles south of Burdwan.</p>
+<p style="text-align: justify;">There is a difference of opinion on the date of his birth.</p>
+<p style="text-align: justify;">During Sri Ramakrishna&rsquo;s illness, Ambika Acharya read his horoscope and dated his birth on the third of Kartik, 1286 B.Y., A.D. 1879. This gives a date of 1756 Shaka, the 10th of Phalgun, Wednesday, the second day of the bright fortnight, Purva Bhadrapada Nakshatra. His calculation is: 1756/109/59/12. On the other hand Kshetra Nath Bhatt&rsquo;s calculation in 1300 B.Y. is 1754/10/9/0/12. According to this calculation it is 1754 Shaka, the 10th of Phalgun, Wednesday, the second day of the bright fortnight, Purva Bhadrapada, 1239 B.Y., 20 February 1833. All tally. At this time there is a conjunction of the sun, the moon, and Mercury. It is the sign of Aquarius. Because of the conjunction of Jupiter and Venus, he would be the chief of a religious sect.</p>
+<p style="text-align: justify;">Narayana Jyotirbhushan made a new horoscope (at Belur Math). According to his calculation, 1242 B.Y., 6th of Phalgun, Wednesday; 17 February 1836, 4 a.m., the second day of the bright fortnight of Phalgun, when there is a conjunction of the three planets, all the points tally except the 10 of Phalgun given by Ambika Acharya: 1757/10/5/59/28/21. Sri Ramakrishna lived for fifty years. Thakur&rsquo;s father, Sri Khudiram Chatterji, was a man of firm faith and great devotion. His mother, Chandramani Devi, was the personification of simplicity and kindness. They had lived in a village called Dere about three miles from Kamarpukur, but because of problems relating to Khudiram&rsquo;s refusal to give evidence in a lawsuit in favour of the landlord at Dere, he moved to Kamarpukur with his family.</p>
+<p style="text-align: justify;">Sri Ramakrishna&rsquo;s childhood name was Gadadhar. He learned elementary reading in primary school but the arithmetic book by Shuvankara confused him, so he left school to stay at home and attend to the household deity, Raghuvir. He himself plucked flowers for worship and performed the daily puja.</p>
+<p style="text-align: justify;">His voice was exquisitely sweet, and he could sing almost all the songs he heard in theatrical performances.He was cheerful from childhood. Everyone in the neighbourhood &ndash; men and women and children &ndash; loved him dearly and felt the attraction of his cheerful nature.</p>
+<p style="text-align: justify;">Holy men frequently visited a guesthouse at the garden of the Lahas, near Gadadhar&rsquo;s home. He would visit them there and serve them. And when the storytellers read from the Puranas, he would listen with rapt attention. In this way he learned all the stories of the Ramayana, the Mahabharata, and the Srimad Bhagavata.</p>
+<p style="text-align: justify;">One day when he was eleven years old, Thakur crossed a field to Anur, a nearby village. He later narrated how he had suddenly lost all sense- consciousness when he saw a miraculous light. People thought he had fainted, but he had attained the superconscious state of bhava samadhi.</p>', 'Sri Sri Ramakrishna
+Kathamrita – by M., a son of the Lord and Disciple M. (Mahendra Nath Gupta) elaborated his diaries.', '', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO blogs VALUES (1006, 'Gurudev’s Birthday Celebration 4th February', '<p>Every year 4th February is celebrated with grandeur and fervor.
+ Plenty of Devotees come to Tara Ma Home at Chatra, Srirampur since early morning. Throughout the day plenty of activities take place. Sri Gurudev’s
+ devotees and disciples perform Aarti, Songs, Yagna. There is plenty of festivities all around. The mood is of celebration throughout the day.</p>
+ <p>Sri Gurudev is offered plenty of variety of food during the day round the clock with all those he had loved to eat. Breakfast is followed by a
+ grand afternoon lunch.More than 500 disciples come and take the Bhog Prasad. During the evening again kirtans, songs are held performed by several
+ devotees and bhakts. 4th February is surely a memorable day for for all followers of Sri Gurudev.</p>', 'Every year 4th February is celebrated with
+ grandeur and fervor. Plenty of Devotees come to Tara Ma Home at Serampore.', 'https://photos.app.goo.gl/QzpwBdok7Pyjofoe8', CURRENT_TIMESTAMP,
+ CURRENT_TIMESTAMP);
 
 select * from blogs;
