@@ -98,6 +98,7 @@ public class BlogsDAOImpl implements BlogsDAO{
 
             for (BlogsEntity be:blogsEntities) {
                 b = new Blogs();
+                b.setBlogId(be.getBlogId());
                 b.setExcerpt(be.getExcerpt());
                 b.setTitle(be.getTitle());
                 b.setImgUrl(be.getImgUrl());
