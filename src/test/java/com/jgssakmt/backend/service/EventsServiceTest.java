@@ -15,6 +15,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -163,5 +165,92 @@ public class EventsServiceTest {
         Mockito.when(eventsDAO.deleteEvent(Mockito.anyInt())).thenReturn(null);
 
         Integer bId = eventsService.deleteEvent(550);
+    }
+
+    @Test
+    public void getAllEventsValidTest() throws Exception {
+        List<Events> events = new ArrayList<>();
+        events.add(new Events());
+
+        Mockito.when(eventsDAO.getAllEvents()).thenReturn(events);
+        Assert.assertNotNull(eventsService.getAllEvents());
+    }
+
+    @Test
+    public void getAllEventsInvalidTest1() throws Exception {
+        expectedException.expect(EventsException.class);
+        expectedException.expectMessage("Error occurred trying to retrieve events");
+
+        List<Events> events = new ArrayList<>();
+
+        Mockito.when(eventsDAO.getAllEvents()).thenReturn(events);
+        eventsService.getAllEvents();
+    }
+
+    @Test
+    public void getAllEventsInvalidTest2() throws Exception {
+        expectedException.expect(EventsException.class);
+        expectedException.expectMessage("Error occurred trying to retrieve events");
+
+        Mockito.when(eventsDAO.getAllEvents()).thenReturn(null);
+        eventsService.getAllEvents();
+    }
+
+    @Test
+    public void getPastEventsValidTest() throws Exception {
+        List<Events> events = new ArrayList<>();
+        events.add(new Events());
+
+        Mockito.when(eventsDAO.getPastEvents()).thenReturn(events);
+        Assert.assertNotNull(eventsService.getPastEvents());
+    }
+
+    @Test
+    public void getPastEventsInvalidTest1() throws Exception {
+        expectedException.expect(EventsException.class);
+        expectedException.expectMessage("Error occurred trying to retrieve past events");
+
+        List<Events> events = new ArrayList<>();
+
+        Mockito.when(eventsDAO.getPastEvents()).thenReturn(events);
+        eventsService.getPastEvents();
+    }
+
+    @Test
+    public void getPastEventsInvalidTest2() throws Exception {
+        expectedException.expect(EventsException.class);
+        expectedException.expectMessage("Error occurred trying to retrieve past events");
+
+        Mockito.when(eventsDAO.getPastEvents()).thenReturn(null);
+        eventsService.getPastEvents();
+    }
+
+    @Test
+    public void getUpComingEventsValidTest() throws Exception {
+        List<Events> events = new ArrayList<>();
+        events.add(new Events());
+
+        Mockito.when(eventsDAO.getUpComingEvents()).thenReturn(events);
+        Assert.assertNotNull(eventsService.getUpComingEvents());
+    }
+
+    @Test
+    public void getUpComingEventsInvalidTest1() throws Exception {
+        expectedException.expect(EventsException.class);
+        expectedException.expectMessage("Error occurred trying to retrieve upcoming events");
+
+        List<Events> events = new ArrayList<>();
+
+        Mockito.when(eventsDAO.getUpComingEvents()).thenReturn(events);
+        eventsService.getUpComingEvents();
+    }
+
+    @Test
+    public void getUpComingEventsInvalidTest2() throws Exception {
+        expectedException.expect(EventsException.class);
+        expectedException.expectMessage("Error occurred trying to retrieve upcoming events");
+
+        Mockito.when(eventsDAO.getUpComingEvents()).thenReturn(null);
+        eventsService.getUpComingEvents();
     }
 }

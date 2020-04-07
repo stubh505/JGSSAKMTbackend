@@ -15,6 +15,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -41,7 +43,7 @@ public class BlogsServiceTest {
     public void getBlogInvalidTest() throws Exception {
         expectedException.expect(BlogsException.class);
         Mockito.when(blogsDAO.getBlog(Mockito.anyInt())).thenReturn(null);
-        Blogs b = blogsService.getBlog(-1);
+        blogsService.getBlog(-1);
     }
 
     @Test
@@ -98,7 +100,7 @@ public class BlogsServiceTest {
         b.setContent("This is a test blog");
         b.setTitle("Test Blog");
 
-        Integer bId = blogsService.addNewBlog(b);
+        blogsService.addNewBlog(b);
     }
 
     @Test
@@ -112,7 +114,7 @@ public class BlogsServiceTest {
         b.setImgUrl("http://abc.co");
         b.setTitle("Test Blog");
 
-        Integer bId = blogsService.addNewBlog(b);
+        blogsService.addNewBlog(b);
     }
 
     @Test
@@ -126,7 +128,7 @@ public class BlogsServiceTest {
         b.setImgUrl("http://abc.co");
         b.setContent("This is a test blog");
 
-        Integer bId = blogsService.addNewBlog(b);
+        blogsService.addNewBlog(b);
     }
 
     @Test
@@ -153,7 +155,7 @@ public class BlogsServiceTest {
         b.setContent("This is a test blog");
         b.setTitle("Test Blog");
 
-        Blogs bId = blogsService.editBlog(550, b);
+        blogsService.editBlog(550, b);
     }
 
     @Test
@@ -170,6 +172,35 @@ public class BlogsServiceTest {
 
         Mockito.when(blogsDAO.deleteBlog(Mockito.anyInt())).thenReturn(null);
 
-        Integer bId = blogsService.deleteBlog(550);
+        blogsService.deleteBlog(550);
+    }
+    
+    @Test
+    public void getAllBlogsValidTest() throws Exception {
+        List<Blogs> blogs = new ArrayList<>();
+        blogs.add(new Blogs());
+
+        Mockito.when(blogsDAO.getAllBlogs()).thenReturn(blogs);
+        Assert.assertNotNull(blogsService.getAllBlogs());
+    }
+
+    @Test
+    public void getAllBlogsInvalidTest1() throws Exception {
+        expectedException.expect(BlogsException.class);
+        expectedException.expectMessage("Error getting blogs");
+
+        List<Blogs> blogs = new ArrayList<>();
+
+        Mockito.when(blogsDAO.getAllBlogs()).thenReturn(blogs);
+        blogsService.getAllBlogs();
+    }
+
+    @Test
+    public void getAllBlogsInvalidTest2() throws Exception {
+        expectedException.expect(BlogsException.class);
+        expectedException.expectMessage("Error getting blogs");
+
+        Mockito.when(blogsDAO.getAllBlogs()).thenReturn(null);
+        blogsService.getAllBlogs();
     }
 }

@@ -19,27 +19,22 @@ public class ContactUsServiceImpl implements ContactUsService {
 
     @Override
     public Integer contactUs(ContactUs contactUs) throws Exception {
-        Integer i = null;
+        ContactUsValidator.validate(contactUs);
+        Integer i = contactUsDAO.contactUs(contactUs);
 
-        if (contactUs != null) {
-            ContactUsValidator.validate(contactUs);
-
-            i = contactUsDAO.contactUs(contactUs);
-        } else {
+        if (i == null)
             throw new ContactUsException("An error occurred while contacting");
-        }
+
         return i;
     }
 
     @Override
     public Integer deleteMessage(Integer id) throws Exception {
-        Integer i = null;
+        Integer i = contactUsDAO.deleteMessage(id);
 
-        if (id != null) {
-            i = contactUsDAO.deleteMessage(id);
-        } else {
+        if (i == null)
             throw new ContactUsException("An error occurred while deleting");
-        }
+
         return i;
     }
 
@@ -48,7 +43,6 @@ public class ContactUsServiceImpl implements ContactUsService {
         List<ContactUs> messages = contactUsDAO.getMessages();
 
         if (messages == null || messages.isEmpty()) {
-
             throw new ContactUsException("An error occurred while retrieving messages");
         }
         return messages;

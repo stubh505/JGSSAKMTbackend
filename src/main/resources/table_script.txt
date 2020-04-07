@@ -9,7 +9,7 @@ drop table contactus
 CREATE TABLE blogs (
 blog_id INT AUTO_INCREMENT,
 title VARCHAR(50) NOT NULL,
-content VARCHAR(2000) NOT NULL,
+content VARCHAR(5000) NOT NULL,
 excerpt VARCHAR(120) NOT NULL,
 img_url VARCHAR(200),
 posted datetime default CURRENT_TIMESTAMP,
