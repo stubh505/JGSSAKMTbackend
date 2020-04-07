@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -28,7 +29,7 @@ public class BlogsDAOTest {
 
     @Test
     public void getBlogValidTest() throws Exception {
-        Blogs b = blogsDAO.getBlog(1000);
+        Blogs b = blogsDAO.getBlog(1001);
         Assert.assertNotNull(b);
     }
 
@@ -127,7 +128,7 @@ public class BlogsDAOTest {
         b.setContent("This is a test blog");
         b.setTitle("Test Blog");
 
-        Blogs bId = blogsDAO.editBlog(1000, b);
+        Blogs bId = blogsDAO.editBlog(1001, b);
         Assert.assertNotNull(bId);
     }
 
@@ -145,7 +146,7 @@ public class BlogsDAOTest {
 
     @Test
     public void deleteBlogValidTest() throws Exception {
-        Integer bId = blogsDAO.deleteBlog(1000);
+        Integer bId = blogsDAO.deleteBlog(1001);
         Assert.assertNotNull(bId);
     }
 
@@ -153,5 +154,11 @@ public class BlogsDAOTest {
     public void deleteBlogInvalidTest() throws Exception {
         Integer bId = blogsDAO.deleteBlog(550);
         Assert.assertNull(bId);
+    }
+
+    @Test
+    public void getAllBlogsValidTest() throws Exception {
+        List<Blogs> blogs = blogsDAO.getAllBlogs();
+        Assert.assertNotNull(blogs);
     }
 }

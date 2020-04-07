@@ -90,7 +90,7 @@ public class BlogsDAOImpl implements BlogsDAO{
         List<Blogs> blogs = null;
         Blogs b;
 
-        Query query = entityManager.createQuery("select b from blogs b");
+        Query query = entityManager.createQuery("select b from BlogsEntity b");
         List<BlogsEntity> blogsEntities = query.getResultList();
 
         if (blogsEntities != null && !blogsEntities.isEmpty()) {
