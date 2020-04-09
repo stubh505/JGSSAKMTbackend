@@ -2,7 +2,7 @@ package com.jgssakmt.backend.model;
 
 import java.time.LocalDateTime;
 
-public class Events {
+public class Events implements Comparable<Events> {
 
     private LocalDateTime startTime;
     private LocalDateTime endTime;
@@ -66,5 +66,10 @@ public class Events {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    @Override
+    public int compareTo(Events o) {
+        return -this.getStartTime().compareTo(o.getStartTime());
     }
 }

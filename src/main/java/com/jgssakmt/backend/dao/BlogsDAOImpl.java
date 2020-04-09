@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -106,6 +107,8 @@ public class BlogsDAOImpl implements BlogsDAO{
 
                 blogs.add(b);
             }
+
+            Collections.sort(blogs);
         }
 
         return blogs;

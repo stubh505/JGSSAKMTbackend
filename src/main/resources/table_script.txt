@@ -104,7 +104,7 @@ details during the 4-day festival. The Maha Ashtami Bhog is very special indeed 
 started. The special Bhog consists of 51 carefully chosen items deliciously cooked by Gurudev ’s loving devotees. Over 2,500 Bhakts, Devotees
 take Prasad during Saptami, Ashtami and Navami. Day 4 is always sad when Mother Durga returns to her abode. This Puja is surely the Best in the
 world in terms of the traditional style Puja is performed in every possible detail.</p>', 'Durga Puja is celebrated at Tara Ma Home in Srirampur
-with plenty of devotion, love and grandeur.', 'https://photos.app.goo.gl/D687WyU9oax9zASP8', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+with plenty of devotion, love and grandeur.', 'https://lh3.googleusercontent.com/2g3UDMcH_TV-uBjfNvxfCbIStvhJNnKo1x8SbJMD25MQ0PPV7atVDyPLaVdbG2SWHbYsVOOIEJ34D3JwTQoEAE4SyLpEen5EOMuwjXj05PqA3y6CDgtP8ylEyB_K7UVLxTHPALehA70', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO blogs VALUES (1002, 'Mahesh Rath Yatra', '<p>On the Bengali month Asadh or Ashar Shukla Dwitia Lord Jagannath, Lord Balabhadra and
 Mata Subhadra out for annual Procession or RathYatra or by Chariot after recovered from Fever caused by the yearly bathing at Snan Yatra.</p><p>
@@ -116,14 +116,14 @@ The famous divine personality attend the Rathyatra is Sri Krishna Chaitanya, Bha
 rath was build by Burn Standard Company of British era and the Expenditure incurred by Dewan Krishna Chandra Basu of famous Basu family of North
 Calcutta. From the beginning they are maintaining thus auspicious festival of Mahesh. The Iron build Rath is platformed with wood and the grills
 and some Iron parts was destroyed in course of time.</p>', 'On the Bengali month Asadh or Ashar Shukla Dwitia Lord Jagannath, Lord Balabhadra and
-Mata Subhadra...', 'https://photos.app.goo.gl/u2LqZX62hrxb1VEv6', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+Mata Subhadra...', 'https://lh3.googleusercontent.com/hdSTomdOEVGAgrLNYYz24rrE5TseG9XimbamOfQM3xcV4WAONLXr-80LYB-Fj6iwj4D852T-V9qW6T_3VXld_5tHGw0BmhDw6Hh-XuZlDOohCYUEGa5dzO3qvl6bFzgg6vJP_IZwEDY', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO blogs VALUES (1003, 'Annual General Meeting', '<p>Every year during August the Annual General Meeting of the Trust is held at Tara Ma Home
 at Chatra, Srirampur. Advance Notices are sent to all Members and Invitees who wish to attend the AGM. The Annual Audited Accounts of the Trust
 is presented to all Members and Invitees during the AGM.</p><p>The Accounts get formally approved at the AGM after discussions amongst all
 Members. Discussions are held where every Member and Invitee is explained all activities undertakes during the past financial year. Planned
 activities for next financial year are discussed and approved at the AGM. Accordingly the Budget is approved.</p>', 'Every year during August the
-Annual General Meeting of the Trust is held at Tara Ma Home at Chatra, Srirampur.', '', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+Annual General Meeting of the Trust is held at Tara Ma Home at Chatra, Srirampur.', 'https://lh3.googleusercontent.com/hdSTomdOEVGAgrLNYYz24rrE5TseG9XimbamOfQM3xcV4WAONLXr-80LYB-Fj6iwj4D852T-V9qW6T_3VXld_5tHGw0BmhDw6Hh-XuZlDOohCYUEGa5dzO3qvl6bFzgg6vJP_IZwEDY', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO blogs VALUES (1004, 'Gurudev’s Birthday Celebration 4th February', '<p>Every year 4th February is celebrated with grandeur and fervor.
 Plenty of Devotees come to Tara Ma Home at Chatra, Srirampur since early morning. Throughout the day plenty of activities take place. Sri Gurudev’s
@@ -131,7 +131,7 @@ devotees and disciples perform Aarti, Songs, Yagna. There is plenty of festiviti
 <p>Sri Gurudev is offered plenty of variety of food during the day round the clock with all those he had loved to eat. Breakfast is followed by a
 grand afternoon lunch.More than 500 disciples come and take the Bhog Prasad. During the evening again kirtans, songs are held performed by several
 devotees and bhakts. 4th February is surely a memorable day for for all followers of Sri Gurudev.</p>', 'Every year 4th February is celebrated with
-grandeur and fervor. Plenty of Devotees come to Tara Ma Home at Serampore.', 'https://photos.app.goo.gl/QzpwBdok7Pyjofoe8', CURRENT_TIMESTAMP,
+grandeur and fervor. Plenty of Devotees come to Tara Ma Home at Serampore.', 'https://lh3.googleusercontent.com/3k_Scb_csbwuINr1lCEDkrXYzdw7c1aW9b2rhTJrDlkTUrTu_74kqPtj6L0Y1Ls8FWrneSjJ40kbxHlWtlxj7tFF0eFzEsDmZbUdixDb8D633hfV0wz7q1CZz2T13Ekp8pEpMBrPn6s', CURRENT_TIMESTAMP,
 CURRENT_TIMESTAMP);
 
 INSERT INTO blogs VALUES (1005, 'Sri Sri Ramakrishna Kathamrita', '<p style="text-align: justify;"><strong>Sri Sri Ramakrishna Kathamrita</strong></p>
@@ -146,15 +146,8 @@ INSERT INTO blogs VALUES (1005, 'Sri Sri Ramakrishna Kathamrita', '<p style="tex
 <p style="text-align: justify;">His voice was exquisitely sweet, and he could sing almost all the songs he heard in theatrical performances.He was cheerful from childhood. Everyone in the neighbourhood &ndash; men and women and children &ndash; loved him dearly and felt the attraction of his cheerful nature.</p>
 <p style="text-align: justify;">Holy men frequently visited a guesthouse at the garden of the Lahas, near Gadadhar&rsquo;s home. He would visit them there and serve them. And when the storytellers read from the Puranas, he would listen with rapt attention. In this way he learned all the stories of the Ramayana, the Mahabharata, and the Srimad Bhagavata.</p>
 <p style="text-align: justify;">One day when he was eleven years old, Thakur crossed a field to Anur, a nearby village. He later narrated how he had suddenly lost all sense- consciousness when he saw a miraculous light. People thought he had fainted, but he had attained the superconscious state of bhava samadhi.</p>', 'Sri Sri Ramakrishna
-Kathamrita – by M., a son of the Lord and Disciple M. (Mahendra Nath Gupta) elaborated his diaries.', '', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+Kathamrita – by M., a son of the Lord and Disciple M. (Mahendra Nath Gupta) elaborated his diaries.', 'https://lh3.googleusercontent.com/3k_Scb_csbwuINr1lCEDkrXYzdw7c1aW9b2rhTJrDlkTUrTu_74kqPtj6L0Y1Ls8FWrneSjJ40kbxHlWtlxj7tFF0eFzEsDmZbUdixDb8D633hfV0wz7q1CZz2T13Ekp8pEpMBrPn6s', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO blogs VALUES (1006, 'Gurudev’s Birthday Celebration 4th February', '<p>Every year 4th February is celebrated with grandeur and fervor.
- Plenty of Devotees come to Tara Ma Home at Chatra, Srirampur since early morning. Throughout the day plenty of activities take place. Sri Gurudev’s
- devotees and disciples perform Aarti, Songs, Yagna. There is plenty of festivities all around. The mood is of celebration throughout the day.</p>
- <p>Sri Gurudev is offered plenty of variety of food during the day round the clock with all those he had loved to eat. Breakfast is followed by a
- grand afternoon lunch.More than 500 disciples come and take the Bhog Prasad. During the evening again kirtans, songs are held performed by several
- devotees and bhakts. 4th February is surely a memorable day for for all followers of Sri Gurudev.</p>', 'Every year 4th February is celebrated with
- grandeur and fervor. Plenty of Devotees come to Tara Ma Home at Serampore.', 'https://photos.app.goo.gl/QzpwBdok7Pyjofoe8', CURRENT_TIMESTAMP,
- CURRENT_TIMESTAMP);
+
 
 select * from blogs;

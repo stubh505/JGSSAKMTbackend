@@ -2,7 +2,7 @@ package com.jgssakmt.backend.model;
 
 import java.time.LocalDateTime;
 
-public class Blogs {
+public class Blogs implements Comparable<Blogs> {
 
     private Integer blogId;
     private String title;
@@ -66,5 +66,10 @@ public class Blogs {
 
     public void setBlogId(Integer blogId) {
         this.blogId = blogId;
+    }
+
+    @Override
+    public int compareTo(Blogs o) {
+        return -this.getPosted().compareTo(o.getPosted());
     }
 }

@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Repository(value = "eventsDAO")
@@ -111,6 +112,8 @@ public class EventsDAOImpl implements EventsDAO {
 
                 events.add(e);
             }
+
+            Collections.sort(events);
         }
 
         return events;
@@ -139,6 +142,8 @@ public class EventsDAOImpl implements EventsDAO {
 
                 events.add(e);
             }
+
+            Collections.sort(events);
         }
 
         return events;
@@ -168,6 +173,8 @@ public class EventsDAOImpl implements EventsDAO {
 
                 events.add(e);
             }
+
+            Collections.sort(events);
         }
 
         return events;
