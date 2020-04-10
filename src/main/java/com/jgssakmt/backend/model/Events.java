@@ -70,6 +70,6 @@ public class Events implements Comparable<Events> {
 
     @Override
     public int compareTo(Events o) {
-        return -this.getStartTime().compareTo(o.getStartTime());
+        return this.getStartTime().compareTo(o.getStartTime());
     }
 }
