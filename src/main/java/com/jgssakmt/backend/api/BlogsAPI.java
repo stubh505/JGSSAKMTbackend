@@ -17,9 +17,6 @@ import java.util.List;
 public class BlogsAPI {
 
     @Autowired
-    Environment environment;
-
-    @Autowired
     BlogsService blogsService;
 
     @GetMapping(value = "/getBlog/{blogId}")
