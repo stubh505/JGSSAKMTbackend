@@ -17,9 +17,6 @@ import java.util.List;
 public class ContactUsAPI {
 
     @Autowired
-    Environment environment;
-
-    @Autowired
     ContactUsService contactUsService;
 
     @PostMapping(value = "/contactUs")
