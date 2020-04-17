@@ -11,7 +11,7 @@
 	<groupId>com.jgssakmt</groupId>
 	<artifactId>jgssakmtback</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>backend</name>
 	<description>Spring Boot web Project</description>
 
