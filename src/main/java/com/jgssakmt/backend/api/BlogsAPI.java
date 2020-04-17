@@ -3,7 +3,6 @@ package com.jgssakmt.backend.api;
 import com.jgssakmt.backend.model.Blogs;
 import com.jgssakmt.backend.service.BlogsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
