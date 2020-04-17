@@ -11,7 +11,7 @@
 	<groupId>com.jgssakmt</groupId>
 	<artifactId>app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>backend</name>
 	<description>Spring Boot web Project</description>
 
@@ -74,6 +74,22 @@
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
+			</plugin>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>2.0.3</version>
+				<configuration>
+					<appName>jgssakmtback</appName>
+					<includeTarget>false</includeTarget>
+					<includes>
+						<include>${project.build.directory}/${project.build.finalName}.jar</include>
+					</includes>
+					<jdkVersion>${java.version}</jdkVersion>
+					<processTypes>
+						<web>java $JAVA_OPTS -jar ${project.build.directory}/${project.build.finalName}.jar</web>
+					</processTypes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
