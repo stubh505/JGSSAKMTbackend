@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -44,7 +46,7 @@ public class BlogsDAOImpl implements BlogsDAO{
         blogsEntity.setContent(blog.getContent());
         blogsEntity.setImgUrl(blog.getImgUrl());
         blogsEntity.setExcerpt(blog.getExcerpt());
-        blogsEntity.setEdited(LocalDateTime.now());
+        blogsEntity.setEdited(LocalDateTime.now(ZoneId.of("Asia/Kolkata")));
         blogsEntity.setPosted(blogsEntity.getEdited());
 
         entityManager.persist(blogsEntity);
@@ -57,7 +59,7 @@ public class BlogsDAOImpl implements BlogsDAO{
         BlogsEntity blogEntity = entityManager.find(BlogsEntity.class, blogId);
 
         if (blogEntity != null) {
-            blogEntity.setEdited(LocalDateTime.now());
+            blogEntity.setEdited(LocalDateTime.now(ZoneId.of("Asia/Kolkata")));
             blogEntity.setImgUrl(blog.getImgUrl());
             blogEntity.setContent(blog.getContent());
             blogEntity.setExcerpt(blog.getExcerpt());

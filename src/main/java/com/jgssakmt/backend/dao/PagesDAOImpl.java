@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class PagesDAOImpl implements PagesDAO {
     public Integer addNewPage(Pages page) throws Exception {
         PagesEntity pagesEntity = new PagesEntity();
         pagesEntity.setHeader(page.getHeader());
-        pagesEntity.setEdited(LocalDateTime.now());
+        pagesEntity.setEdited(LocalDateTime.now(ZoneId.of("Asia/Kolkata")));
         pagesEntity.setPosted(pagesEntity.getEdited());
         pagesEntity.setName(page.getName());
         pagesEntity.setExcerpt(page.getExcerpt());
@@ -93,7 +94,7 @@ public class PagesDAOImpl implements PagesDAO {
 
         if (pageEntity != null) {
             pageEntity.setName(page.getName());
-            pageEntity.setEdited(LocalDateTime.now());
+            pageEntity.setEdited(LocalDateTime.now(ZoneId.of("Asia/Kolkata")));
             pageEntity.setHeader(page.getHeader());
             pageEntity.setPosted(page.getPosted());
             pageEntity.setExcerpt(page.getExcerpt());
