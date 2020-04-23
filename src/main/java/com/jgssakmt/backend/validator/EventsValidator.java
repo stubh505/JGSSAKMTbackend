@@ -13,7 +13,7 @@ public class EventsValidator {
             throw new EventsException("Invalid event excerpt format.");
         if (b.getEndTime().isBefore(b.getStartTime()))
             throw new EventsException("Invalid event time duration.");
-        if (b.getImgUrl() != null) {
+        if (b.getImgUrl() != null && b.getImgUrl().equals("")) {
             if (b.getImgUrl().length() > 200 || !b.getImgUrl().matches("(http:\\/\\/www\\.|https:\\/\\/www\\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?"))
                 throw new EventsException("Invalid event image url format.");
         }
