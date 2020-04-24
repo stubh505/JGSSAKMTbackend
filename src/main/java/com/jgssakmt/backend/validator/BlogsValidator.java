@@ -11,7 +11,7 @@ public class BlogsValidator {
             throw new BlogsException("Invalid blog content.");
         if (b.getExcerpt() == null || b.getExcerpt().length() > 120 || b.getExcerpt().equals(""))
             throw new BlogsException("Invalid blog excerpt format.");
-        if (b.getImgUrl() != null) {
+        if (b.getImgUrl() != null && !b.getImgUrl().equals("")) {
             if (b.getImgUrl().length() > 200 || !b.getImgUrl().matches("(http:\\/\\/www\\.|https:\\/\\/www\\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?"))
                 throw new BlogsException("Invalid blog image url format.");
         }

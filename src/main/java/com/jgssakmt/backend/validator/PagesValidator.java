@@ -24,7 +24,7 @@ public class PagesValidator {
 
     private static Boolean validateParagraphs(List<Paragraph> paragraphs) {
         for (Paragraph b:paragraphs) {
-            if (b.getImgUrl() != null) {
+            if (b.getImgUrl() != null && !b.getImgUrl().equals("")) {
                 if (b.getImgUrl().length() > 200 || !b.getImgUrl().matches("(http:\\/\\/www\\.|https:\\/\\/www\\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?"))
                     return false;
             }
