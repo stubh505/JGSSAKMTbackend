@@ -7,5 +7,6 @@ import java.util.List;
 public interface ContactUsService {
     Integer contactUs(ContactUs contactUs) throws Exception;
     Integer deleteMessage (Integer id) throws Exception;
+    ContactUs getMessage (Integer id) throws Exception;
     List<ContactUs> getMessages () throws Exception;
 }

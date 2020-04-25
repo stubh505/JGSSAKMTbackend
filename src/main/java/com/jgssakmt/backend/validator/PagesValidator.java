@@ -33,6 +33,7 @@ public class PagesValidator {
             if (b.getHeader() == null || b.getHeader().length() > 50 || b.getHeader().equals(""))
                 return false;
         }
+
         return true;
     }
 }

@@ -29,6 +29,15 @@ public class ContactUsServiceImpl implements ContactUsService {
     }
 
     @Override
+    public ContactUs getMessage(Integer id) throws Exception {
+        if (id == null)
+            throw new ContactUsException("Error occurred trying to retrieve message");
+
+        ContactUs message = contactUsDAO.getMessage(id);
+        return message;
+    }
+
+    @Override
     public Integer deleteMessage(Integer id) throws Exception {
         Integer i = contactUsDAO.deleteMessage(id);
 

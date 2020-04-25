@@ -36,6 +36,24 @@ public class ContactUsDAOImpl implements ContactUsDAO {
     }
 
     @Override
+    public ContactUs getMessage(Integer id) throws Exception {
+        ContactUs message = null;
+
+        if (id != null) {
+            ContactUsEntity entity = entityManager.find(ContactUsEntity.class, id);
+            if (entity != null) {
+                message = new ContactUs();
+                message.setId(entity.getId());
+                message.setEmail(entity.getEmail());
+                message.setName(entity.getName());
+                message.setMessage(entity.getMessage());
+                message.setMobile(entity.getMobile());
+            }
+        }
+        return message;
+    }
+
+    @Override
     public Integer deleteMessage(Integer id) throws Exception {
         Integer i = null;
 
