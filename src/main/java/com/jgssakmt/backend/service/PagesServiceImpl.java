@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service(value = "pagesService")
 @Transactional
@@ -15,6 +16,15 @@ public class PagesServiceImpl implements PagesService {
 
     @Autowired
     PagesDAO pagesDAO;
+
+    @Override
+    public List<Pages> getAllPages() throws Exception {
+        List<Pages> pages = pagesDAO.getAllPages();
+
+        if (pages == null || pages.isEmpty())
+            throw new PagesException("No Pages were retrieved");
+        return pages;
+    }
 
     @Override
     public Pages getPage(Integer pageId) throws Exception {

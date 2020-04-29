@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -18,6 +19,32 @@ public class PagesDAOImpl implements PagesDAO {
 
     @Autowired
     private EntityManager entityManager;
+
+    @Override
+    public List<Pages> getAllPages() throws Exception {
+        List<Pages> pages = null;
+
+        Pages e;
+
+        Query query = entityManager.createQuery("select e from PagesEntity e");
+
+        List<PagesEntity> eventsEntities = query.getResultList();
+
+        if (eventsEntities != null && !eventsEntities.isEmpty()) {
+            pages = new ArrayList<>();
+
+            for (PagesEntity ee:eventsEntities) {
+                e = new Pages();
+                e.setName(ee.getName());
+                e.setExcerpt(ee.getExcerpt());
+                e.setPageId(ee.getPageId());
+
+                pages.add(e);
+            }
+        }
+
+        return pages;
+    }
 
     @Override
     public Pages getPage(Integer pageId) throws Exception {

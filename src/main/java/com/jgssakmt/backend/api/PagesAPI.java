@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("PagesAPI")
@@ -19,6 +21,16 @@ public class PagesAPI {
 
     @Autowired
     PagesService pagesService;
+
+    @GetMapping(value = "/getAllPages")
+    public ResponseEntity<List<Pages>> getAllPages() throws Exception {
+        try {
+            List<Pages> pages = pagesService.getAllPages();
+            return new ResponseEntity<>(pages, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+    }
 
     @GetMapping(value = "/getPage/{pageId}")
     public ResponseEntity<Pages> getPage(@PathVariable Integer pageId) throws Exception {
