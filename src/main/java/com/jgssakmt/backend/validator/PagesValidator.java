@@ -14,26 +14,22 @@ public class PagesValidator {
             throw new PagesException("Invalid page excerpt format.");
         if (b.getName() == null || !b.getName().matches("([\\w.?:;]+[ ]*)+"))
             throw new PagesException("Invalid page name format.");
-        if (b.getParagraphs() != null && !b.getParagraphs().isEmpty()) {
-            if (!validateParagraphs(b.getParagraphs()))
-                throw new PagesException("Invalid page paragraph format.");
-        }
+        if (b.getParagraphs() != null && !b.getParagraphs().isEmpty())
+            validateParagraphs(b.getParagraphs());
         if (b.getParagraphs() == null || b.getParagraphs().isEmpty())
             throw new PagesException("Page should have at least 1 paragraph");
     }
 
-    private static Boolean validateParagraphs(List<Paragraph> paragraphs) {
+    private static void validateParagraphs(List<Paragraph> paragraphs) throws PagesException {
         for (Paragraph b:paragraphs) {
             if (b.getImgUrl() != null && !b.getImgUrl().equals("")) {
                 if (b.getImgUrl().length() > 200 || !b.getImgUrl().matches("(http:\\/\\/www\\.|https:\\/\\/www\\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?"))
-                    return false;
+                    throw new PagesException("Invalid paragraph Image URL");
             }
             if (b.getBody() == null || b.getBody().length() > 2000 || b.getBody().equals(""))
-                return false;
+                throw new PagesException("Invalid paragraph body");
             if (b.getHeader() == null || b.getHeader().length() > 50 || b.getHeader().equals(""))
-                return false;
+                throw new PagesException("Invalid paragraph header");
         }
-
-        return true;
     }
 }
