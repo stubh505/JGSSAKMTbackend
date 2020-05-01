@@ -28,7 +28,7 @@ public class PagesValidator {
             }
             if (b.getBody() == null || b.getBody().length() > 2000 || b.getBody().equals(""))
                 throw new PagesException("Invalid paragraph body");
-            if (b.getHeader() == null || b.getHeader().length() > 50 || b.getHeader().equals(""))
+            if (b.getHeader() == null || b.getHeader().length() > 100 || b.getHeader().equals(""))
                 throw new PagesException("Invalid paragraph header");
         }
     }
