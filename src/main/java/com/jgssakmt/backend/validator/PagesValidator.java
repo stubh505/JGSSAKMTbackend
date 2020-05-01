@@ -9,17 +9,17 @@ import java.util.List;
 public class PagesValidator {
     public static void validate(Pages b) throws PagesException {
         if (b.getHeader() == null || b.getHeader().length() > 50 || b.getHeader().equals(""))
-            throw new PagesException("Invalid page name format.");
+            throw new PagesException("Invalid page header format.");
         if (b.getExcerpt() == null || b.getExcerpt().length() > 120 || b.getExcerpt().equals(""))
             throw new PagesException("Invalid page excerpt format.");
-        if (b.getName() == null || !b.getName().matches("[A-Za-z0-9]+"))
+        if (b.getName() == null || !b.getName().matches("([\\w.?:;]+[ ]*)+"))
             throw new PagesException("Invalid page name format.");
         if (b.getParagraphs() != null && !b.getParagraphs().isEmpty()) {
             if (!validateParagraphs(b.getParagraphs()))
                 throw new PagesException("Invalid page paragraph format.");
         }
         if (b.getParagraphs() == null || b.getParagraphs().isEmpty())
-            throw new PagesException("Invalid page paragraph format.");
+            throw new PagesException("Page should have at least 1 paragraph");
     }
 
     private static Boolean validateParagraphs(List<Paragraph> paragraphs) {
