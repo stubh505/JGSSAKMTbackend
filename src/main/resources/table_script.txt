@@ -36,6 +36,12 @@ constraint WL_Events_Pk primary key (event_id)
 ALTER TABLE event_s auto_increment = 1000;
 
 
+create table carousel(
+id serial primary key;
+image varchar(200) not null;
+label varchar(50);
+body varchar(200)
+);
 
 CREATE TABLE pages (
 page_id INT AUTO_INCREMENT,
@@ -43,7 +49,7 @@ name VARCHAR(20),
 header VARCHAR(50) NOT NULL,
 excerpt VARCHAR(120) NOT NULL,
 posted datetime default CURRENT_TIMESTAMP,
-edited datetime default CURRENT_TIMESTAMP,
+edited datetime default CURRENT_    TIMESTAMP,
 constraint WL_Pages_Pk primary key (page_id)
 );
 

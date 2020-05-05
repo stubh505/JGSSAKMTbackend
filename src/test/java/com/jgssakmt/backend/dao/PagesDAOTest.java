@@ -31,7 +31,7 @@ public class PagesDAOTest {
 
     @Test
     public void getPageValidTest() throws Exception {
-        Pages b = pagesDAO.getPage(1000);
+        Pages b = pagesDAO.getPage(1001);
         Assert.assertNotNull(b);
     }
 
@@ -182,7 +182,7 @@ public class PagesDAOTest {
 
         b.setParagraphs(ps);
 
-        Pages bId = pagesDAO.editPage(1000, b);
+        Pages bId = pagesDAO.editPage(1001, b);
         Assert.assertNotNull(bId);
     }
 
@@ -207,7 +207,7 @@ public class PagesDAOTest {
 
     @Test
     public void deletePageValidTest() throws Exception {
-        Integer bId = pagesDAO.deletePage(1000);
+        Integer bId = pagesDAO.deletePage(1001);
         Assert.assertNotNull(bId);
     }
 
