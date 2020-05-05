@@ -32,7 +32,7 @@ public class CarouselDAOImpl implements CarouselDAO {
                 carousel.setId(entity.getId());
                 carousel.setBody(entity.getBody());
                 carousel.setImage(entity.getImage());
-                carousel.setLabel(entity.getImage());
+                carousel.setLabel(entity.getLabel());
 
                 carousels.add(carousel);
             }
