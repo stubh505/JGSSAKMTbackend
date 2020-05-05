@@ -1,6 +1,6 @@
 package com.jgssakmt.backend.model;
 
-public class Paragraph {
+public class Paragraph implements Comparable<Paragraph> {
 
     private Integer paragraphId;
     private String header;
@@ -37,5 +37,10 @@ public class Paragraph {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    @Override
+    public int compareTo(Paragraph o) {
+        return this.getParagraphId().compareTo(o.getParagraphId());
     }
 }

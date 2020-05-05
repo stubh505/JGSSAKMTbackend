@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Repository(value = "pagesDAO")
@@ -77,6 +78,7 @@ public class PagesDAOImpl implements PagesDAO {
                 }
             }
 
+            Collections.sort(paras);
             page.setParagraphs(paras);
 
         }
