@@ -158,3 +158,10 @@ Kathamrita – by M., a son of the Lord and Disciple M. (Mahendra Nath Gupta) el
 
 
 select * from blogs;
+
+
+insert into carousel values (1, 'https://lh3.googleusercontent.com/FIpz8Pr-VN9xUN7FHumSYP3vEjqikSyQXzNfbtdWyRHSJICV0a5GmgpsWtc8ImMrWf1y-ydyVOsbxu0b8TT0Lh6aumlPksc7v_y-uIt9u_dM0fR8zjM32hXZAdUBKtVbUVjbuvRluxI', '', '');
+
+insert into carousel values (2, 'https://lh3.googleusercontent.com/TKQEcJAB8ICq0wC2qsQWTw6LffWya7pm5QUYDL2iPvDQMeTAOfUXSZxfL1JbeZK-PEP26mhWRy1nI3oOFXxXoLC-pWDQtZyUnPjcX3k45ZmaRnusNUxaxSTt3WEv7WAE6F8LC4oGpqM', 'Jagannath Deb', '');
+
+inseet into carousel values (3, 'https://lh3.googleusercontent.com/zI5vp8EoADs2Oe2N_-YvKl7aJVWeRo9FWyaSW31XMeUS1HX7fMX6prIO-VDxI4cx2NrKhb07h4Hgf0AAngyK-h3CELXGKEzuabOsne_z2nUJZDjVq0lRafN09ZlZo_L4eqkPTZAlY48', 'Tara Ma er Puja', 'Puja Body short excerpt');

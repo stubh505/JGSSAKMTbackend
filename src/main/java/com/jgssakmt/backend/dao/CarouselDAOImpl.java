@@ -18,7 +18,7 @@ public class CarouselDAOImpl implements CarouselDAO {
 
     @Override
     public List<Carousel> getCarousels() throws Exception {
-        Query query = entityManager.createQuery("select c from CarouselEntity");
+        Query query = entityManager.createQuery("select c from CarouselEntity c");
         List<CarouselEntity> entities = query.getResultList();
 
         List<Carousel> carousels = null;
