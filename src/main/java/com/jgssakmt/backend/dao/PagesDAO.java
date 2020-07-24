@@ -5,9 +5,44 @@ import com.jgssakmt.backend.model.Pages;
 import java.util.List;
 
 public interface PagesDAO {
+
+    /**
+     * Function to retrieve all data
+     * @return List of pages
+     * @throws Exception unable to retrieve
+     */
     List<Pages> getAllPages() throws Exception;
+
+    /**
+     * Function to get individual page
+     * @param pageId entity id
+     * @return Page details
+     * @throws Exception Unable to get page
+     */
     Pages getPage(Integer pageId) throws Exception;
+
+    /**
+     * Function to add new page
+     * @param page page details
+     * @return persisted id
+     * @throws Exception Unable to persist page
+     */
     Integer addNewPage(Pages page) throws Exception;
+
+    /**
+     * Function to edit persisted page details
+     * @param pageId entity id
+     * @param page page details
+     * @return updated details
+     * @throws Exception Unable to persist
+     */
     Pages editPage(Integer pageId, Pages page) throws Exception;
+
+    /**
+     * Function to delete persisted entity
+     * @param pageId entity id
+     * @return persisted id
+     * @throws Exception unable to remove
+     */
     Integer deletePage(Integer pageId) throws Exception;
 }
